@@ -29,6 +29,10 @@ window.addEventListener('click', (e) => {
         if (secondOperand === '' && operator === '') {
             firstOperand += key;
             output.textContent = firstOperand;
+        } else if (firstOperand !== '' && secondOperand !== '' && finish) {
+            secondOperand = key;
+            finish = false;
+            output.textContent = secondOperand;
         } else {
             secondOperand += key;
             output.textContent = secondOperand;
@@ -42,6 +46,7 @@ window.addEventListener('click', (e) => {
     }
 
     if (key === '=') {
+        if (secondOperand === '') secondOperand = firstOperand;
         switch (operator) {
             case '+':
                 firstOperand = (+firstOperand) + (+secondOperand);
@@ -57,6 +62,7 @@ window.addEventListener('click', (e) => {
                 break;
         }
         finish = true;
+        output.textContent = firstOperand;
     }
 
 });
