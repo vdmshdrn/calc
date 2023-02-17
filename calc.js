@@ -13,3 +13,8 @@ function clear() {
     operator = '';
     output.textContent = 0;
 }
+document.querySelector('.clear').onclick = clear;
+
+window.addEventListener('click', (e) => {
+    console.log(e.target);
+});
