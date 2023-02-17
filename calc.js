@@ -16,5 +16,11 @@ function clear() {
 document.querySelector('.clear').onclick = clear;
 
 window.addEventListener('click', (e) => {
-    console.log(e.target);
+    if (!e.target.classList.contains('btn')) return;
+
+    if (e.target.classList.contains('clear')) return;
+
+    output.textContent = '';
+    const key = e.target.textContent;
+    console.log(key);
 });
