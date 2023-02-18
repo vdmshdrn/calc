@@ -55,6 +55,13 @@ window.addEventListener('click', (e) => {
                 firstOperand = firstOperand - secondOperand;
                 break;
             case '/':
+                if (secondOperand === 0) {
+                    output.textContent = 'ERROR';
+                    firstOperand = '';
+                    secondOperand = '';
+                    operator = '';
+                    return;
+                }
                 firstOperand = firstOperand / secondOperand;
                 break;
             case '*':
